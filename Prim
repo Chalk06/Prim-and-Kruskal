@@ -1,6 +1,38 @@
+#Pseudocode for Prim's
 T = ∅;
 U = { 1 };
 while (U ≠ V)
     let (u, v) be the lowest cost edge such that u ∈ U and v ∈ V - U;
     T = T ∪ {(u, v)}
     U = U ∪ {v}
+
+#Prim's Algorithm
+
+INF = 9999999
+V = 5
+
+G = [[0, 7, 21, 1, 1],
+     [10, 4, 87, 21, 56],
+     [56, 87, 5, 30, 71],
+     [1, 21, 56, 7, 21],
+     [0, 21, 87, 1, 21]]
+
+selected = [0, 0, 0, 0, 0]
+no_edge = 0
+selected[0] = True
+print("Edge : Weight\n")
+while (no_edge < V - 1):
+    minimum = INF
+    x = 0
+    y = 0
+    for i in range(V):
+        if selected[i]:
+            for j in range(V):
+                if ((not selected[j]) and G[i][j]):  
+                    if minimum > G[i][j]:
+                        minimum = G[i][j]
+                        x = i
+                        y = j
+    print(str(x) + "-" + str(y) + ":" + str(G[x][y]))
+    selected[y] = True
+    no_edge += 1
