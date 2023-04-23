@@ -1,5 +1,22 @@
 
-# Kruskal's algorithm in Python
+#other pseudocode
+
+Algorithm Kruskal(G):
+Input: A simple connected weighted graph G with n vertices and m edges
+Output: A minimum spanning tree T for G
+for each vertex v in G do
+Define an elementary cluster C(v) = {v}.
+Initialize a priority queue Q to contain all edges in G, using the weights as keys.
+T = ∅ {T will ultimately contain the edges of the MST}
+while T has fewer than n−1 edges do
+(u,v) = value returned by Q.remove min()
+Let C(u) be the cluster containing u, and let C(v) be the cluster containing v.
+if C(u) = C(v) then
+Add edge (u,v) to T.
+Merge C(u) and C(v) into one cluster.
+return tree T
+
+# Kruskal's algorithm in Python reference
 
 
 class Graph:
